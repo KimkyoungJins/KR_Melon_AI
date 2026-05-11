@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="60" y="54" font-size="36" font-weight="800" fill="#111827">Summary</text>
+
+  <!-- ============= TOP : DONE ============= -->
+  <g id="band-done">
+    <text x="60" y="100" font-size="13" font-weight="700" fill="#10B981" letter-spacing="3">DONE</text>
+
+    <!-- Phase 1: Data -->
+    <g transform="translate(40, 120)">
+      <rect width="500" height="320" rx="18" fill="#FFFFFF" stroke="#10B981" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="20" y="20" width="78" height="26" rx="6" fill="#10B981"/>
+      <text x="59" y="38" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">PHASE 1</text>
+      <text x="20" y="80" font-size="22" font-weight="800" fill="#111827">Data</text>
+      <text x="250" y="200" font-size="64" font-weight="800" fill="#10B981" text-anchor="middle">211k</text>
+      <text x="250" y="240" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">labeled images</text>
+      <text x="250" y="290" font-size="13" fill="#6B7280" text-anchor="middle">site-grouped split &#183; farm leakage fixed</text>
+    </g>
+
+    <!-- Phase 2: Training -->
+    <g transform="translate(560, 120)">
+      <rect width="500" height="320" rx="18" fill="#FFFFFF" stroke="#10B981" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="20" y="20" width="78" height="26" rx="6" fill="#10B981"/>
+      <text x="59" y="38" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">PHASE 2</text>
+      <text x="20" y="80" font-size="22" font-weight="800" fill="#111827">Training</text>
+      <text x="250" y="200" font-size="64" font-weight="800" fill="#10B981" text-anchor="middle">85.4%</text>
+      <text x="250" y="240" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">test accuracy</text>
+      <text x="250" y="290" font-size="13" fill="#6B7280" text-anchor="middle">MobileNetV2 &#183; ImageNet pretrained</text>
+    </g>
+
+    <!-- Phase 3: Quantization -->
+    <g transform="translate(1080, 120)">
+      <rect width="480" height="320" rx="18" fill="#FFFFFF" stroke="#10B981" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="20" y="20" width="78" height="26" rx="6" fill="#10B981"/>
+      <text x="59" y="38" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">PHASE 3</text>
+      <text x="20" y="80" font-size="22" font-weight="800" fill="#111827">Quantization</text>
+      <text x="240" y="200" font-size="64" font-weight="800" fill="#10B981" text-anchor="middle">3.75&#215;</text>
+      <text x="240" y="240" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">compression &#183; 2.3 MB INT8</text>
+      <text x="240" y="290" font-size="13" fill="#6B7280" text-anchor="middle">NPU-ready ONNX</text>
+    </g>
+  </g>
+
+  <!-- ============= BOTTOM : NEXT ============= -->
+  <g id="band-next">
+    <text x="60" y="490" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="3">NEXT</text>
+
+    <!-- Phase 4: Firmware -->
+    <g transform="translate(40, 510)">
+      <rect width="500" height="320" rx="18" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4" filter="url(#shadow)"/>
+      <rect x="20" y="20" width="78" height="26" rx="6" fill="#9CA3AF"/>
+      <text x="59" y="38" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">PHASE 4</text>
+      <text x="20" y="80" font-size="22" font-weight="800" fill="#111827">Firmware</text>
+      <text x="250" y="195" font-size="44" font-weight="800" fill="#6B7280" text-anchor="middle">RUHMI &#8594; RA8P1</text>
+      <text x="250" y="240" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">Vela compile + e&#178; studio</text>
+      <text x="250" y="290" font-size="13" fill="#6B7280" text-anchor="middle">Ethos-U55 deployment</text>
+    </g>
+
+    <!-- Phase 5: Verification -->
+    <g transform="translate(560, 510)">
+      <rect width="500" height="320" rx="18" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="6,4" filter="url(#shadow)"/>
+      <rect x="20" y="20" width="78" height="26" rx="6" fill="#9CA3AF"/>
+      <text x="59" y="38" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">PHASE 5</text>
+      <text x="20" y="80" font-size="22" font-weight="800" fill="#111827">Verification</text>
+      <text x="250" y="195" font-size="44" font-weight="800" fill="#6B7280" text-anchor="middle">NPU vs CPU</text>
+      <text x="250" y="240" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">latency &#183; power &#183; 5-img demo</text>
+      <text x="250" y="290" font-size="13" fill="#6B7280" text-anchor="middle">UART log &#183; on-board measurement</text>
+    </g>
+
+    <!-- Extension: QAT -->
+    <g transform="translate(1080, 510)">
+      <rect width="480" height="320" rx="18" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2" stroke-dasharray="6,4" filter="url(#shadow)"/>
+      <rect x="20" y="20" width="105" height="26" rx="6" fill="#F59E0B"/>
+      <text x="72" y="38" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">EXTENSION</text>
+      <text x="20" y="80" font-size="22" font-weight="800" fill="#111827">QAT</text>
+      <text x="240" y="195" font-size="48" font-weight="800" fill="#F59E0B" text-anchor="middle">-4.4 &#8594; &#8804;-2 pp</text>
+      <text x="240" y="240" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">accuracy recovery</text>
+      <text x="240" y="290" font-size="13" fill="#6B7280" text-anchor="middle">quantization-aware training</text>
+    </g>
+  </g>
+</svg>

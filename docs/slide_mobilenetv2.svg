@@ -1,0 +1,134 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="60" y="54" font-size="36" font-weight="800" fill="#111827">MobileNetV2</text>
+
+  <!-- ============= NETWORK PIPELINE ============= -->
+  <g id="band-arch">
+    <rect x="40" y="100" width="1520" height="180" rx="14" fill="#EFF6FF"/>
+    <text x="60" y="128" font-size="12" font-weight="700" fill="#3B82F6" letter-spacing="3">ARCHITECTURE</text>
+
+    <g transform="translate(60, 155)">
+      <rect width="200" height="110" rx="14" fill="#FFFFFF" stroke="#1F2937" stroke-width="2"/>
+      <text x="100" y="68" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">160 &#215; 160</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2.5" fill="#1F2937">
+      <line x1="262" y1="210" x2="287" y2="210"/>
+      <polygon points="290,210 282,206 282,214" stroke="none"/>
+    </g>
+
+    <g transform="translate(290, 155)">
+      <rect width="200" height="110" rx="14" fill="#FFFFFF" stroke="#1F2937" stroke-width="2"/>
+      <text x="100" y="68" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">Conv 3&#215;3</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2.5" fill="#1F2937">
+      <line x1="492" y1="210" x2="517" y2="210"/>
+      <polygon points="520,210 512,206 512,214" stroke="none"/>
+    </g>
+
+    <!-- Inverted Residual x17 (HERO) -->
+    <g transform="translate(520, 150)">
+      <rect width="420" height="120" rx="14" fill="#F59E0B" stroke="#92400E" stroke-width="2.5"/>
+      <text x="210" y="80" font-size="26" font-weight="800" fill="#FFFFFF" text-anchor="middle">Inverted Residual &#215; 17</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2.5" fill="#1F2937">
+      <line x1="942" y1="210" x2="967" y2="210"/>
+      <polygon points="970,210 962,206 962,214" stroke="none"/>
+    </g>
+
+    <g transform="translate(970, 155)">
+      <rect width="270" height="110" rx="14" fill="#FFFFFF" stroke="#1F2937" stroke-width="2"/>
+      <text x="135" y="68" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">Pool + FC</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2.5" fill="#1F2937">
+      <line x1="1242" y1="210" x2="1267" y2="210"/>
+      <polygon points="1270,210 1262,206 1262,214" stroke="none"/>
+    </g>
+
+    <g transform="translate(1270, 155)">
+      <rect width="270" height="110" rx="14" fill="#FFFFFF" stroke="#1F2937" stroke-width="2"/>
+      <text x="135" y="68" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">5 classes</text>
+    </g>
+  </g>
+
+  <!-- ============= INVERTED RESIDUAL BLOCK ============= -->
+  <g id="band-block">
+    <rect x="40" y="300" width="1520" height="200" rx="14" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="6,4"/>
+    <text x="60" y="328" font-size="12" font-weight="700" fill="#92400E" letter-spacing="3">INVERTED RESIDUAL BLOCK</text>
+
+    <!-- Skip arc -->
+    <path d="M 130 415 Q 130 360, 220 360 L 1340 360 Q 1430 360 1430 415"
+          stroke="#92400E" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+    <text x="780" y="353" font-size="13" font-weight="700" fill="#92400E" text-anchor="middle">skip</text>
+
+    <circle cx="130" cy="415" r="9" fill="#1F2937"/>
+    <g stroke="#1F2937" stroke-width="2" fill="#1F2937">
+      <line x1="139" y1="415" x2="223" y2="415"/>
+      <polygon points="226,415 218,411 218,419" stroke="none"/>
+    </g>
+
+    <g transform="translate(228, 380)">
+      <rect width="320" height="70" rx="10" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.8"/>
+      <text x="160" y="46" font-size="20" font-weight="700" fill="#111827" text-anchor="middle">1&#215;1 Expand</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2" fill="#1F2937">
+      <line x1="552" y1="415" x2="617" y2="415"/>
+      <polygon points="620,415 612,411 612,419" stroke="none"/>
+    </g>
+
+    <!-- Hero of block: Depthwise -->
+    <g transform="translate(622, 375)">
+      <rect width="320" height="80" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2.5"/>
+      <text x="160" y="50" font-size="22" font-weight="800" fill="#111827" text-anchor="middle">3&#215;3 Depthwise</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2" fill="#1F2937">
+      <line x1="946" y1="415" x2="1011" y2="415"/>
+      <polygon points="1014,415 1006,411 1006,419" stroke="none"/>
+    </g>
+
+    <g transform="translate(1016, 380)">
+      <rect width="320" height="70" rx="10" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.8"/>
+      <text x="160" y="46" font-size="20" font-weight="700" fill="#111827" text-anchor="middle">1&#215;1 Project</text>
+    </g>
+    <g stroke="#1F2937" stroke-width="2" fill="#1F2937">
+      <line x1="1340" y1="415" x2="1422" y2="415"/>
+      <polygon points="1425,415 1417,411 1417,419" stroke="none"/>
+    </g>
+
+    <circle cx="1430" cy="415" r="9" fill="#1F2937"/>
+  </g>
+
+  <!-- ============= 4 BIG STAT TILES ============= -->
+  <g id="band-stats">
+    <g transform="translate(40, 540)">
+      <rect width="370" height="320" rx="18" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="185" y="180" font-size="80" font-weight="800" fill="#F59E0B" text-anchor="middle">100%</text>
+      <text x="185" y="240" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">NPU op match</text>
+    </g>
+
+    <g transform="translate(430, 540)">
+      <rect width="370" height="320" rx="18" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="185" y="180" font-size="80" font-weight="800" fill="#3B82F6" text-anchor="middle">2.23M</text>
+      <text x="185" y="240" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">parameters</text>
+    </g>
+
+    <g transform="translate(820, 540)">
+      <rect width="370" height="320" rx="18" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="185" y="180" font-size="80" font-weight="800" fill="#3B82F6" text-anchor="middle">9&#215;</text>
+      <text x="185" y="240" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">fewer MACs</text>
+    </g>
+
+    <g transform="translate(1210, 540)">
+      <rect width="370" height="320" rx="18" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="185" y="180" font-size="80" font-weight="800" fill="#F59E0B" text-anchor="middle">85.4%</text>
+      <text x="185" y="240" font-size="22" font-weight="700" fill="#111827" text-anchor="middle">test accuracy</text>
+    </g>
+  </g>
+</svg>

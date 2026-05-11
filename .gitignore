@@ -1,0 +1,46 @@
+# --- Data ---
+# Everything under data/ is local working state (zips, extracted labels,
+# extracted images, AI model checkpoints). Re-extractable from source zips.
+data/
+*.zip
+*.zip.part*
+
+# --- Models / artifacts ---
+*.pth
+*.onnx
+*.tflite
+runs/
+tensorboard_logs/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Reference docs (datasheets, screenshots — local only) ---
+docs/reference/
+*.pdf
+*.PDF
+
+# --- Build output ---
+build/
+dist/
+*.elf
+*.bin
+*.hex
+*.map
+
+# --- RUHMI/MERA generated intermediates (we only keep firmware/model/src/) ---
+firmware/model/melon_classifier_*/
+docker_work/
+tools/

@@ -1,0 +1,11 @@
+torch>=2.1
+torchvision>=0.16
+onnx>=1.15
+onnxruntime>=1.17
+numpy
+pandas
+pillow
+matplotlib
+scikit-learn
+tensorboard
+tqdm

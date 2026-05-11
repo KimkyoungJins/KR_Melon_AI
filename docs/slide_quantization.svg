@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="60" y="54" font-size="36" font-weight="800" fill="#111827">Quantization &#183; INT8 PTQ</text>
+
+  <!-- ============= HERO : FP32 &#8594; INT8 ============= -->
+
+  <!-- FP32 box (LARGE, blue) -->
+  <g id="fp32" transform="translate(280, 170)">
+    <rect width="480" height="480" rx="24" fill="#DBEAFE" stroke="#3B82F6" stroke-width="3" filter="url(#shadow)"/>
+    <text x="240" y="80" font-size="20" font-weight="800" fill="#3B82F6" text-anchor="middle" letter-spacing="4">FP32</text>
+    <text x="240" y="280" font-size="96" font-weight="800" fill="#1F2937" text-anchor="middle">8.5 MB</text>
+    <text x="240" y="370" font-size="22" font-weight="600" fill="#374151" text-anchor="middle">85.4% accuracy</text>
+  </g>
+
+  <!-- Arrow with PTQ label -->
+  <g id="arrow">
+    <polygon points="780,380 970,380 970,350 1040,410 970,470 970,440 780,440" fill="#F59E0B"/>
+    <text x="875" y="418" font-size="22" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">PTQ</text>
+  </g>
+
+  <!-- INT8 box (SMALLER, amber) -->
+  <g id="int8" transform="translate(1040, 270)">
+    <rect width="280" height="280" rx="20" fill="#FEF3C7" stroke="#F59E0B" stroke-width="3" filter="url(#shadow)"/>
+    <text x="140" y="60" font-size="16" font-weight="800" fill="#92400E" text-anchor="middle" letter-spacing="4">INT8</text>
+    <text x="140" y="170" font-size="56" font-weight="800" fill="#1F2937" text-anchor="middle">2.3 MB</text>
+    <text x="140" y="225" font-size="16" font-weight="600" fill="#374151" text-anchor="middle">81.0% accuracy</text>
+  </g>
+
+  <!-- ============= BOTTOM STATS ============= -->
+
+  <g id="stats">
+    <g transform="translate(140, 690)">
+      <rect width="420" height="180" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="210" y="105" font-size="64" font-weight="800" fill="#3B82F6" text-anchor="middle">3.75&#215;</text>
+      <text x="210" y="150" font-size="18" font-weight="700" fill="#374151" text-anchor="middle">Compression</text>
+    </g>
+
+    <g transform="translate(590, 690)">
+      <rect width="420" height="180" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="210" y="105" font-size="64" font-weight="800" fill="#F59E0B" text-anchor="middle">100%</text>
+      <text x="210" y="150" font-size="18" font-weight="700" fill="#374151" text-anchor="middle">NPU mapped</text>
+    </g>
+
+    <g transform="translate(1040, 690)">
+      <rect width="420" height="180" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="210" y="105" font-size="64" font-weight="800" fill="#EF4444" text-anchor="middle">-4.4 pp</text>
+      <text x="210" y="150" font-size="18" font-weight="700" fill="#374151" text-anchor="middle">Accuracy drop</text>
+    </g>
+  </g>
+</svg>

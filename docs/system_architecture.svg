@@ -1,0 +1,129 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="60" y="44" font-size="30" font-weight="800" fill="#111827">System Architecture</text>
+
+  <!-- ============= BAND A : HOST PC ============= -->
+  <g id="band-a">
+    <rect x="40" y="70" width="1520" height="300" rx="16" fill="#EFF6FF"/>
+    <text x="60" y="100" font-size="13" font-weight="700" fill="#3B82F6" letter-spacing="3">HOST PC &#183; TRAIN &amp; EXPORT</text>
+  </g>
+
+  <!-- 3 BIG pipeline nodes -->
+  <g id="pipeline">
+    <!-- Node 1: TRAIN -->
+    <g id="n1" transform="translate(60, 130)">
+      <rect width="380" height="220" rx="18" fill="#FFFFFF" stroke="#1F2937" stroke-width="2" filter="url(#shadow)"/>
+      <text x="190" y="80" font-size="15" font-weight="700" fill="#3B82F6" text-anchor="middle" letter-spacing="3">STEP 1</text>
+      <text x="190" y="135" font-size="34" font-weight="800" fill="#111827" text-anchor="middle">TRAIN</text>
+      <text x="190" y="175" font-size="17" fill="#374151" text-anchor="middle">PyTorch</text>
+      <text x="190" y="200" font-size="15" fill="#6B7280" text-anchor="middle">MobileNetV2 &#183; FP32</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <g stroke="#1F2937" stroke-width="3" fill="#1F2937">
+      <line x1="450" y1="240" x2="595" y2="240"/>
+      <polygon points="610,240 590,228 590,252" stroke="none"/>
+    </g>
+
+    <!-- Node 2: QUANTIZE -->
+    <g id="n2" transform="translate(610, 130)">
+      <rect width="380" height="220" rx="18" fill="#FFFFFF" stroke="#1F2937" stroke-width="2" filter="url(#shadow)"/>
+      <text x="190" y="80" font-size="15" font-weight="700" fill="#3B82F6" text-anchor="middle" letter-spacing="3">STEP 2</text>
+      <text x="190" y="135" font-size="34" font-weight="800" fill="#111827" text-anchor="middle">QUANTIZE</text>
+      <text x="190" y="175" font-size="17" fill="#374151" text-anchor="middle">ONNX &#183; INT8 (PTQ)</text>
+      <text x="190" y="200" font-size="15" fill="#6B7280" text-anchor="middle">8.5 MB &#8594; 2.3 MB</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <g stroke="#1F2937" stroke-width="3" fill="#1F2937">
+      <line x1="1000" y1="240" x2="1145" y2="240"/>
+      <polygon points="1160,240 1140,228 1140,252" stroke="none"/>
+    </g>
+
+    <!-- Node 3: COMPILE -->
+    <g id="n3" transform="translate(1160, 130)">
+      <rect width="380" height="220" rx="18" fill="#FFFFFF" stroke="#1F2937" stroke-width="2" filter="url(#shadow)"/>
+      <text x="190" y="80" font-size="15" font-weight="700" fill="#3B82F6" text-anchor="middle" letter-spacing="3">STEP 3</text>
+      <text x="190" y="135" font-size="34" font-weight="800" fill="#111827" text-anchor="middle">COMPILE</text>
+      <text x="190" y="175" font-size="17" fill="#374151" text-anchor="middle">RUHMI / Vela</text>
+      <text x="190" y="200" font-size="15" fill="#6B7280" text-anchor="middle">Ethos-U55 mapping</text>
+    </g>
+  </g>
+
+  <!-- ============= DEPLOY ARROW ============= -->
+  <g id="deploy">
+    <path d="M 700 390 L 900 390 L 900 480 L 970 480 L 800 540 L 630 480 L 700 480 Z" fill="#F59E0B"/>
+    <text x="800" y="445" font-size="28" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">DEPLOY</text>
+  </g>
+
+  <!-- ============= BAND B : TARGET BOARD ============= -->
+  <g id="band-b">
+    <rect x="40" y="555" width="1520" height="285" rx="16" fill="#FFFBEB"/>
+    <text x="60" y="585" font-size="13" font-weight="700" fill="#B45309" letter-spacing="3">TARGET BOARD &#183; ON-DEVICE INFERENCE</text>
+  </g>
+
+  <!-- PCB -->
+  <g id="pcb">
+    <rect x="80" y="600" width="1440" height="220" rx="14" fill="#FFFFFF" stroke="#1F2937" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="100" y="625" font-size="14" font-weight="800" fill="#1F2937" letter-spacing="2">EK-RA8P1</text>
+
+    <!-- Image input (LEFT) -->
+    <g id="img">
+      <rect x="110" y="650" width="180" height="150" rx="12" fill="#F9FAFB" stroke="#1F2937" stroke-width="1.8"/>
+      <text x="200" y="725" font-size="22" font-weight="800" fill="#111827" text-anchor="middle">Image</text>
+      <text x="200" y="755" font-size="15" fill="#6B7280" text-anchor="middle">input</text>
+    </g>
+
+    <!-- Arrow img -> M85 -->
+    <g stroke="#9CA3AF" stroke-width="2.5" fill="#9CA3AF">
+      <line x1="295" y1="725" x2="325" y2="725"/>
+      <polygon points="335,725 322,719 322,731" stroke="none"/>
+    </g>
+
+    <!-- Cortex-M85 -->
+    <g id="m85">
+      <rect x="345" y="650" width="240" height="150" rx="12" fill="#F9FAFB" stroke="#1F2937" stroke-width="1.8"/>
+      <text x="465" y="720" font-size="24" font-weight="800" fill="#111827" text-anchor="middle">Cortex-M85</text>
+      <text x="465" y="750" font-size="15" fill="#6B7280" text-anchor="middle">CPU</text>
+    </g>
+
+    <!-- Arrow M85 -> NPU -->
+    <g stroke="#9CA3AF" stroke-width="2.5" fill="#9CA3AF">
+      <line x1="590" y1="725" x2="620" y2="725"/>
+      <polygon points="630,725 617,719 617,731" stroke="none"/>
+    </g>
+
+    <!-- Ethos-U55 NPU (HERO) -->
+    <g id="npu">
+      <rect x="640" y="635" width="660" height="180" rx="14" fill="#F59E0B" stroke="#92400E" stroke-width="2.5"/>
+      <text x="970" y="713" font-size="40" font-weight="800" fill="#FFFFFF" text-anchor="middle">Ethos-U55 NPU</text>
+      <text x="970" y="755" font-size="18" font-weight="600" fill="#FFFFFF" text-anchor="middle">INT8 inference &#183; 256 MAC / cycle</text>
+      <text x="970" y="785" font-size="14" font-weight="600" fill="#FEF3C7" text-anchor="middle" letter-spacing="2">&#9733; HARDWARE ACCELERATOR &#9733;</text>
+    </g>
+
+    <!-- Arrow NPU -> UART -->
+    <g stroke="#9CA3AF" stroke-width="2.5" fill="#9CA3AF">
+      <line x1="1305" y1="725" x2="1335" y2="725"/>
+      <polygon points="1345,725 1332,719 1332,731" stroke="none"/>
+    </g>
+
+    <!-- UART (RIGHT) -->
+    <g id="uart">
+      <rect x="1355" y="650" width="150" height="150" rx="12" fill="#F9FAFB" stroke="#1F2937" stroke-width="1.8"/>
+      <text x="1430" y="725" font-size="22" font-weight="800" fill="#111827" text-anchor="middle">UART</text>
+      <text x="1430" y="755" font-size="15" fill="#6B7280" text-anchor="middle">class output</text>
+    </g>
+  </g>
+
+  <!-- Caption -->
+  <text x="800" y="876" font-size="15" font-style="italic" fill="#6B7280" text-anchor="middle">PC &#54616;&#45208;&#47196; &#54617;&#49845;&#46108; &#47784;&#46944;&#51060; MCU &#50948;&#47196; &#45236;&#47140;&#50752;&#49436;, &#45236;&#48512; NPU&#44032; INT8&#47196; &#52628;&#47200;&#54620;&#45796;.</text>
+</svg>
